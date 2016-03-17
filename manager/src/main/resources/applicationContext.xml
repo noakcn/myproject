@@ -19,31 +19,34 @@
            http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
 
-    <!-- ORACLE -->
+    <!-- 数据源 dbcp -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-        <property name="username" value="ts" />
-        <property name="password" value="111111" />
-        <property name="url" value="jdbc:oracle:thin:@120.55.74.237:1521:f5" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/cc?useUnicode=yes&amp;characterEncoding=utf8"/>
+        <property name="username" value="root"/>
+        <property name="password" value=""/>
+        <property name="testOnBorrow" value="true"/>
+        <!--用来检验连接的，保持连接的有效性-->
+        <property name="validationQuery" value="select 1"/>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dataSource"/>
     </bean>
 
     <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <!-- SUPPORTS：有事务就在事务中运行 -->
             <!-- REQUIRED:必须在事务中运行 -->
-            <tx:method name="get*" propagation="SUPPORTS" read-only="true" />
-            <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
-            <tx:method name="count*" propagation="SUPPORTS" read-only="true" />
-            <tx:method name="select*" propagation="SUPPORTS" read-only="true" />
-            <tx:method name="save*" propagation="REQUIRED" />
-            <tx:method name="insert*" propagation="REQUIRED" />
-            <tx:method name="update*" propagation="REQUIRED" />
-            <tx:method name="delete*" propagation="REQUIRED" />
-            <tx:method name="remove*" propagation="REQUIRED" />
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="count*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="remove*" propagation="REQUIRED"/>
             <!-- 自己的方法名开头 -->
         </tx:attributes>
     </tx:advice>
@@ -51,8 +54,8 @@
     <!--aop配置 配置切入点, -->
     <aop:config>
         <!-- 在service的所有方法上开事务 -->
-        <aop:pointcut id="myPointcut" expression="execution(* com.cc.service.*.*(..))" />
-        <aop:advisor pointcut-ref="myPointcut" advice-ref="transactionAdvice" />
+        <aop:pointcut id="myPointcut" expression="execution(* com.cc.service.*.*(..))"/>
+        <aop:advisor pointcut-ref="myPointcut" advice-ref="transactionAdvice"/>
     </aop:config>
 
 </beans>

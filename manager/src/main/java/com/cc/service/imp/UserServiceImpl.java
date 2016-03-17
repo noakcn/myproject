@@ -13,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by yewangwang on 2016/3/15.
  */
-@Service
+@Service("UserServiceImpl")
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+    @Resource
     UserDao userDao;
 
     public int insert(HttpServletRequest request, HttpServletResponse response,User user) {
