@@ -5,6 +5,10 @@ package com.cc.domain;
  */
 public class User {
     /**
+     * id 主键
+     */
+    private String id;
+    /**
      * 用户名
      */
     private String username;
@@ -12,6 +16,14 @@ public class User {
      * 密码
      */
     private String pwd;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

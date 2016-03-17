@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService {
 
     public User findOne(HttpServletRequest request, HttpServletResponse response,User user)
     {
+        System.out.println(userDao);
         if(user.getUsername()==null||user.getPwd()==null||user.getPwd().isEmpty()||user.getUsername().isEmpty()){
             request.setAttribute("errcode",-1000);
             request.setAttribute("msg","用户名或密码不能为空");

@@ -9,8 +9,8 @@
         values(#{id},#{username},#{pwd})
     </insert>
 
-    <select id="findOne" resultType="User">
-        select username from user_table
+    <select id="findOne" parameterType="com.cc.domain.User" resultType="com.cc.domain.User">
+        select id,username,pwd from user_table
         <where>
             <if test="id!=null">
                 id=#{id}
@@ -23,6 +23,7 @@
             </if>
         </where>
     </select>
+
     <delete id="delete">
         delete from admintable where id=#{id}
     </delete>
