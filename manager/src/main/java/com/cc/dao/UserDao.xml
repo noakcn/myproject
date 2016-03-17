@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dao.UserDao">
+    <!-- id 表示NewsDao中的方法名字 -->
+    <insert id="insert" >
+        insert into user_table(id,username,pwd)
+        values(#{id},#{username},#{pwd})
+    </insert>
+
+    <select id="findOne" resultType="User">
+        select username from user_table
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="username!=null">
+                and username=#{username}
+            </if>
+            <if test="pwd!=null">
+                and pwd=#{pwd}
+            </if>
+        </where>
+    </select>
+    <delete id="delete">
+        delete from admintable where id=#{id}
+    </delete>
+
+</mapper>
+
