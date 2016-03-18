@@ -87,10 +87,9 @@
                         <div class="clearfix"></div>
                     </fieldset>
                 </form>
-                
+
             </div><!--/span-->
         </div><!--/row-->
-
 
     </div><!--/.fluid-container-->
 
