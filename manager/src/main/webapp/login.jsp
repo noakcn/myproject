@@ -85,8 +85,8 @@
                             <button type="submit" class="btn btn-primary btn-block">登录</button>
                         </div>
                         <div class="clearfix"></div>
+                    </fieldset>
                 </form>
-
 
             </div><!--/span-->
         </div><!--/row-->
@@ -154,11 +154,13 @@
 <script src="js/custom.js"></script>
 <!-- end: JavaScript-->
 <!--user My Js-->
-<c:if test="${errcode==-1000}">
+<c:if test="${errcode<0}">
 
     <script defer="defer">
-        $.noty({text: "${msg}", layout: "center", type: "error",
-        timeout:2000});
+        $.noty({
+            text: "${msg}", layout: "center", type: "error",
+            timeout: 2000
+        });
     </script>
 </c:if>
 

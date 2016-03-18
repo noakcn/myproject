@@ -19,6 +19,7 @@ public class UserController {
     @Resource(name="UserServiceImpl")
     UserService userService;
 
+
     @RequestMapping("/login.do")
     public String doLogin(User user, HttpServletRequest request, HttpServletResponse response){
         User resultUser =userService.findOne(request,response,user);
