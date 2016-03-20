@@ -11,5 +11,4 @@ import javax.servlet.http.HttpServletResponse;
 public interface UserService {
     int insert(HttpServletRequest request, HttpServletResponse response,User user);
     User findOne(HttpServletRequest request, HttpServletResponse response,User user);
-
 }

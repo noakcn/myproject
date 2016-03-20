@@ -3,6 +3,7 @@ package com.cc.service.imp;
 import com.cc.dao.UserDao;
 import com.cc.domain.User;
 import com.cc.service.UserService;
+import com.cc.util.ErrorCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,23 +20,22 @@ public class UserServiceImpl implements UserService {
     @Resource
     UserDao userDao;
 
-    public int insert(HttpServletRequest request, HttpServletResponse response,User user) {
+    public int insert(HttpServletRequest request, HttpServletResponse response, User user) {
 
         return userDao.insert(user);
     }
 
-    public User findOne(HttpServletRequest request, HttpServletResponse response,User user)
-    {
+    public User findOne(HttpServletRequest request, HttpServletResponse response, User user) {
         System.out.println(userDao);
-        if(user.getUsername()==null||user.getPwd()==null||user.getPwd().isEmpty()||user.getUsername().isEmpty()){
-            request.setAttribute("errcode",-1000);
-            request.setAttribute("msg","用户名或密码不能为空");
+        if (user.getUsername() == null || user.getPwd() == null || user.getPwd().isEmpty() || user.getUsername().isEmpty()) {
+            request.setAttribute("errcode", ErrorCode.EmptyNameOrPwd.getCode());
+            request.setAttribute("msg", ErrorCode.EmptyNameOrPwd.getText());
             return null;
         }
-        User resultUser=userDao.findOne(user);
-        if(resultUser==null){
-            request.setAttribute("errcode",-1000);
-            request.setAttribute("msg","用户名或密码错误");
+        User resultUser = userDao.findOne(user);
+        if (resultUser == null) {
+            request.setAttribute("errcode", ErrorCode.LoginDenied.getCode());
+            request.setAttribute("msg", ErrorCode.LoginDenied.getText());
             return null;
         }
         return resultUser;

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by yewangwang on 2016/3/17.
  */
-public interface FangYuanLuRuDao {
+public interface FangYuanDao {
     int insert(Home home);
     List<Home> findAll(Home home);
     Home findOne(Home home);
