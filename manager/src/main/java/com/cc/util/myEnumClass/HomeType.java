@@ -1,16 +1,18 @@
-package com.cc.util;
+package com.cc.util.myEnumClass;
 
 /**
- * Created by yewangwang on 2016/3/17.
+ * 客房类型枚举
+ * Created by yewangwang on 2016/3/20.
  */
-public enum HomeStatus {
-    KongXiang(10,"空闲"),
-    YiRuZhu(20,"已入住"),
-    DaShaoZhong(30,"打扫中"),
-    BuKeYong(40,"不可用");
+public enum HomeType {
+    NormalSingle(10,"标房(单)"),
+    NormalDouble(20,"标房(双)"),
+    BusinessSingle(30,"商务房(单)"),
+    BusinessDouble(40,"商务房(双)");
+
     private int code;
     private String text;
-    private HomeStatus(int code ,String text){
+    private HomeType(int code ,String text){
         this.code=code;
         this.text=text;
     }
@@ -31,3 +33,4 @@ public enum HomeStatus {
         this.text = text;
     }
 }
+

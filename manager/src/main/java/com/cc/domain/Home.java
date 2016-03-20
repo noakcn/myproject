@@ -6,10 +6,25 @@ package com.cc.domain;
  */
 public class Home {
     private String id;
+    /**
+     * 编号
+     */
     private String bianhao;
+    /**
+     * 楼层
+     */
     private Integer louceng;
+    /**
+     * 房间状态
+     */
     private Integer status;
+    /**
+     * 价格
+     */
     private Double price;
+    /**
+     * 房间类型
+     */
     private Integer type;
 
 

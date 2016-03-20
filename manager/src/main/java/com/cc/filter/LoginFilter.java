@@ -1,13 +1,12 @@
 package com.cc.filter;
 
-import com.cc.util.ErrorCode;
+import com.cc.util.myEnumClass.ErrorCode;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 

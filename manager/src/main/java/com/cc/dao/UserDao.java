@@ -8,7 +8,7 @@ import com.cc.domain.User;
 public interface UserDao {
      User findOne(User user);
 
-     int insert(User user);
+     void insert(User user);
 
 
 }

@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cc.dao.FangYuanDao">
-    <select id="insert" >
-        insert into
-
+    <select id="insert" resultType="Integer" >
+        insert into home_table (id,bianhao,louceng,status,price,type)
+        values (#{id},#{bianhao},#{louceng},#{status},#{price},#{type})
     </select>
 </mapper>

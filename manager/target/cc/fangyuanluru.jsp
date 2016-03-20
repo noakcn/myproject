@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -83,7 +85,7 @@
 
                     </div>
                     <div class="box-content">
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" action="/operator/add/fangyuan.do">
                             <fieldset>
                                 <div class="control-group">
                                     <label class="control-label" for="bianhao">编号</label>
@@ -113,7 +115,7 @@
                                     <div class="controls">
                                         <div class="input-prepend input-append">
                                             <span class="add-on">￥</span>
-                                            <input id="appendedPrependedInput" size="16" type="text">
+                                            <input id="appendedPrependedInput" size="16" type="text" name="price">
                                         </div>
                                     </div>
                                 </div>
@@ -233,6 +235,23 @@
 
 <script src="js/custom.js"></script>
 <!-- end: JavaScript-->
+<!--user My Js-->
+<c:if test="${errcode<0}">
 
+    <script defer="defer">
+        $.noty({
+            text: "${msg}", layout: "center", type: "error",
+            timeout: 2000
+        });
+    </script>
+</c:if>
+<c:if test="${errcode>0}">
+    <script defer="defer">
+        $.noty({
+            text: "${msg}", layout: "center", type: "success",
+            timeout: 3000
+        });
+    </script>
+</c:if>
 </body>
 </html>

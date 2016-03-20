@@ -3,8 +3,8 @@ package com.cc.service.imp;
 import com.cc.dao.UserDao;
 import com.cc.domain.User;
 import com.cc.service.UserService;
-import com.cc.util.ErrorCode;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.cc.util.myEnumClass.ErrorCode;
+import com.cc.util.RandomToken;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -21,8 +21,8 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     public int insert(HttpServletRequest request, HttpServletResponse response, User user) {
-
-        return userDao.insert(user);
+        userDao.insert(user);
+        return 1;
     }
 
     public User findOne(HttpServletRequest request, HttpServletResponse response, User user) {
@@ -38,6 +38,7 @@ public class UserServiceImpl implements UserService {
             request.setAttribute("msg", ErrorCode.LoginDenied.getText());
             return null;
         }
+        request.getSession().setAttribute("accessToken", RandomToken.getToken());
         return resultUser;
     }
 }
