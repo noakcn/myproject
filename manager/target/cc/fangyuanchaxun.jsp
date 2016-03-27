@@ -72,7 +72,7 @@
                 </li>
                 <li><a href="fangyuanchaxun.jsp.jsp">房源查询</a></li>
             </ul>
-            
+
 
             <div class="row-fluid sortable">
                 <div class="box span12">

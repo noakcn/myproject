@@ -3,8 +3,28 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cc.dao.FangYuanDao">
-    <select id="insert" resultType="Integer" >
+
+    <insert id="insert">
         insert into home_table (id,bianhao,louceng,status,price,type)
         values (#{id},#{bianhao},#{louceng},#{status},#{price},#{type})
+    </insert>
+
+    <select id="findAll" resultType="com.cc.domain.Home">
+        select id,bianhao,louceng,status,price,type from home_table
+        <where>
+            <if test="#{id}!=null">
+                id like #{condition}
+            </if>
+            <if test="#{bianhao}!=null">
+               or bianhao like #{condition}
+            </if>
+            <if test="#{louceng}!=null">
+               or louceng like #{condition}
+            </if>
+            <if test="#{status}!=null">
+               or status like #{condition}
+            </if>
+
+        </where>
     </select>
 </mapper>
