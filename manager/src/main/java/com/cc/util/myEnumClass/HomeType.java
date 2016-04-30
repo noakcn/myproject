@@ -17,6 +17,15 @@ public enum HomeType {
         this.text=text;
     }
 
+    public static String getValueByCode(int code){
+        for(HomeType homeType:HomeType.values()){
+            if(homeType.getCode()==code){
+                return homeType.getText();
+            }
+        }
+        return "没有该类型";
+    }
+
     public int getCode() {
         return code;
     }

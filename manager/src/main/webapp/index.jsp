@@ -69,7 +69,7 @@
             </ul>
 
             <div class="row-fluid">
-                <a class="quick-button metro yellow span4" href="kefangyuding.jsp">
+                <a class="quick-button metro yellow span4" href="/operator/show/reserve.do">
                     <i class="icon-group"></i>
                     <p>客房预订</p>
                 </a>
@@ -85,7 +85,7 @@
                     <i class="icon-plus"></i>
                     <p>房源录入</p>
                 </a>
-                <a class="quick-button metro green span4" href="fangyuanchaxun.jsp">
+                <a class="quick-button metro green span4" href="/operator/search.do">
                     <i class="icon-search"></i>
                     <p>房源查询</p>
                 </a>

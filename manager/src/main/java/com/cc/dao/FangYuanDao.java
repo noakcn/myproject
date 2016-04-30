@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface FangYuanDao {
     void insert(Home home);
-    List<Home> findAll(Condition condition);
+    List<Home> findAll(Home home);
 
     Home findOne(Home home);
     int update(Home home);

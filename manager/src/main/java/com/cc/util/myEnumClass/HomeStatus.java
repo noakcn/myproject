@@ -14,7 +14,14 @@ public enum HomeStatus {
         this.code=code;
         this.text=text;
     }
-
+    public static String getValueByCode(int code){
+        for(HomeStatus status:HomeStatus.values()){
+            if(status.getCode()==code){
+                return status.getText();
+            }
+        }
+        return "状态错误";
+    }
     public int getCode() {
         return code;
     }

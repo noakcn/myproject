@@ -15,7 +15,7 @@
                         class="hidden-tablet"> 房务管理</span><span
                         class="label label-important"> 4 </span></a>
                 <ul>
-                    <li><a class="submenu" href="kefangyuding.jsp"><i class="icon-pencil"></i>
+                    <li><a class="submenu" href="/operator/show/reserve.do"><i class="icon-pencil"></i>
                         <span class="hidden-tablet"> 客房预订</span>
                     </a>
                     </li>
@@ -27,7 +27,7 @@
                         <span class="hidden-tablet"> 房源录入</span>
                     </a>
                     </li>
-                    <li><a class="submenu" href="fangyuanchaxun.jsp"><i class="icon-search"></i>
+                    <li><a class="submenu" href="/operator/search.do"><i class="icon-search"></i>
                         <span class="hidden-tablet"> 房源查询</span>
                     </a>
                     </li>

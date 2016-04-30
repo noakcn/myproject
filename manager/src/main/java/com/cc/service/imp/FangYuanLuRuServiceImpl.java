@@ -45,14 +45,11 @@ public class FangYuanLuRuServiceImpl implements BasicService<Home> {
         return 1;
     }
 
-    public List<Home> findAll(Condition object, HttpServletRequest request, HttpServletResponse response) {
-        List<Home> homeList = fangYuanDao.findAll(object);
-        return homeList;
-    }
 
     @Override
-    public List<Home> findAll(Home object, HttpServletRequest request, HttpServletResponse response) {
-        return null;
+    public List<Home> findAll(Home home, HttpServletRequest request, HttpServletResponse response) {
+        List<Home> homeList = fangYuanDao.findAll(home);
+        return homeList;
     }
 
     @Override

@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -6,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    <base href="<%=basePath%>">
     <!-- start: Meta -->
     <meta charset="utf-8">
     <title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
@@ -88,45 +90,50 @@
                                 <th> 类型</th>
                                 <th> 价格</th>
                                 <th> 当前状态</th>
-                                <th> 状态选择</th>
+                                <th> 更改状态</th>
                                 <th> 操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td class="center">#102</td>
-                                <td class="center">1</td>
+                            <c:if test="${empty list }">
+                                没有房间，请去添加
+                            </c:if>
+                            <c:if test="${!empty list }">
+                                <c:forEach var="home" items="${list }">
+                                    <tr>
+                                        <td class="center">#${home.bianhao}</td>
+                                        <td class="center">${home.louceng}</td>
+                                        <td class="center">${home.typeStr}</td>
+                                        <td class="center">${home.price}</td>
+                                        <td class="center">
+                                            <span class="label label-success">${home.statusStr}</span>
+                                        </td>
+                                        <td class="center">
+                                            <a class="btn btn-success" href="#">
+                                                空闲
+                                            </a>
+                                            <a class="btn btn-info black" href="#">
+                                                不可用
+                                            </a>
+                                            <a class="btn btn-danger" href="#">
+                                                打扫
+                                            </a>
 
-                                <td class="center">商务(双人)</td>
-                                <td class="center">1999</td>
-                                <td class="center">
-                                    <span class="label label-success">空闲</span>
-                                </td>
-                                <td class="center">
-                                    <a class="btn btn-success" href="#">
-                                        空闲
-                                    </a>
-                                    <a class="btn btn-info black" href="#">
-                                        不可用
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        打扫
-                                    </a>
+                                        </td>
+                                        <td class="center">
 
-                                </td>
-                                <td class="center">
+                                            <a class="btn btn-info" href="#">
+                                                <i class="halflings-icon white edit"></i>
+                                            </a>
+                                            <a class="btn btn-danger" href="#">
+                                                <i class="halflings-icon white trash"></i>
+                                            </a>
 
-                                    <a class="btn btn-info" href="#">
-                                        <i class="halflings-icon white edit"></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="halflings-icon white trash"></i>
-                                    </a>
+                                        </td>
 
-                                </td>
-                            </tr>
-
-
+                                    </tr>
+                                </c:forEach>
+                            </c:if>
                             </tbody>
                         </table>
                     </div>

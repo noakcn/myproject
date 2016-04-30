@@ -27,6 +27,9 @@ public class Home {
      */
     private Integer type;
 
+    public Integer getType() {
+        return type;
+    }
 
     public String getBianhao() {
         return bianhao;
@@ -60,9 +63,7 @@ public class Home {
         this.price = price;
     }
 
-    public Integer getType() {
-        return type;
-    }
+
 
     public void setType(Integer type) {
         this.type = type;

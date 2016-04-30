@@ -10,21 +10,7 @@
     </insert>
 
     <select id="findAll" resultType="com.cc.domain.Home">
-        select id,bianhao,louceng,status,price,type from home_table
-        <where>
-            <if test="#{id}!=null">
-                id like #{condition}
-            </if>
-            <if test="#{bianhao}!=null">
-               or bianhao like #{condition}
-            </if>
-            <if test="#{louceng}!=null">
-               or louceng like #{condition}
-            </if>
-            <if test="#{status}!=null">
-               or status like #{condition}
-            </if>
-
-        </where>
+        select * from home_table
+        ORDER BY bianhao,louceng
     </select>
 </mapper>

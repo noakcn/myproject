@@ -1,8 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <base href="<%=basePath%>">
@@ -26,6 +29,7 @@
     <link id="base-style-responsive" href="css/style-responsive.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext'
           rel='stylesheet' type='text/css'>
+    <link  href="css/mycss.css" rel="stylesheet">
     <!-- end: CSS -->
 
 
@@ -60,7 +64,6 @@
         <!--end: menu-->
 
 
-
         <!-- start: Content -->
         <div id="content" class="span10">
 
@@ -77,46 +80,54 @@
             <div class="row-fluid">
                 <div class="box blue span12">
                     <div class="box-header">
-                        <h2><i class="halflings-icon hand-top"></i><span class="break"></span>一层</h2>
+                        <h2><i class="halflings-icon hand-top"></i><span class="break"></span>房间</h2>
                     </div>
-                    <div class="box-content">
+                    <c:if test="${empty list }">
+                        没有房间，请去添加
+                    </c:if>
+                    <c:if test="${!empty list }">
+                        <div class="box-content">
+                            <c:forEach var="home" items="${list }">
+                                <c:if test="${home.status==10}">
+                                    <a id="${home.id}" class="quick-button span2 make_bottom_margin" onclick="">
+                                        <i class="icon-home"></i>
+                                        <p>${home.bianhao}</p>
+                                        <span class="notification green">${home.statusStr}</span>
+                                    </a>
 
-                        <a id="kf105" class="quick-button green span2" onclick="showyijingruzhu()">
-                            <i class="icon-home"></i>
-                            <p>105</p>
-                            <span class="notification blue">已入住</span>
-                        </a>
-                        <a class="quick-button red span2" onclick="showdashaoweishengzhong()">
-                            <i class="icon-home"></i>
-                            <p>106</p>
-                            <span class="notification green">打扫卫生中</span>
-                        </a>
-                        <a class="quick-button span2">
-                            <i class="icon-home"></i>
-                            <span class="notification green">空闲</span>
-                            <p>107</p>
-                        </a>
-                        <a class="quick-button span2">
-                            <i class="icon-home"></i>
-                            <span class="notification green">空闲</span>
-                            <p>108</p>
-                        </a>
-                        <a class="quick-button span2">
-                            <i class="icon-home"></i>
-                            <span class="notification green">空闲</span>
-                            <p>109</p>
-                        </a>
-                        <a class="quick-button black span2">
-                            <i class="icon-home"></i>
-                            <p>110</p>
-                            <span class="notification red">不可用</span>
-                        </a>
-                        <div class="clearfix"></div>
-                    </div>
+                                </c:if>
+                                <c:if test="${home.status==20}">
+                                    <a id="${home.id}" class="quick-button green span2 make_bottom_margin" onclick="showyijingruzhu()">
+                                        <i class="icon-home"></i>
+                                        <p>${home.bianhao}</p>
+                                        <span class="notification blue">${home.statusStr}</span>
+                                    </a>
+                                </c:if>
+                                <c:if test="${home.status==30}">
+                                    <a id="${home.id}" class="quick-button red span2"
+                                       onclick="showdashaoweishengzhong()">
+                                        <i class="icon-home"></i>
+                                        <p>${home.bianhao}</p>
+                                        <span class="notification green">${home.statusStr}</span>
+                                    </a>
+                                </c:if>
+                                <c:if test="${home.status==40}">
+                                    <a id="${home.id}" class="quick-button black span2"
+                                       onclick="showdashaoweishengzhong()">
+                                        <i class="icon-home"></i>
+                                        <p>${home.bianhao}</p>
+                                        <span class="notification red">${home.statusStr}</span>
+                                    </a>
+                                </c:if>
+                            </c:forEach>
+                            <div class="clearfix"></div>
+                        </div>
+                    </c:if>
+
                 </div><!--/span-->
 
             </div><!--/row-->
-、
+            、
         </div><!--/.fluid-container-->
 
         <!-- end: Content -->
@@ -222,11 +233,11 @@
 <!-- end: JavaScript-->
 <!-- start:my js-->
 <script type="text/javascript">
-    function showyijingruzhu(){
+    function showyijingruzhu() {
 
         $('#yijingruzhu').modal('show');
     }
-    function showdashaoweishengzhong(){
+    function showdashaoweishengzhong() {
         $('#dashaoweishengzhong').modal('show');
     }
 

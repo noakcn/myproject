@@ -118,17 +118,16 @@
             <div class="row-fluid sortable">
                 <div class="box span12">
                     <div class="box-header">
-                        <h2><i class="halflings-icon align-justify"></i><span class="break"></span>Simple Table</h2>
+                        <h2><i class="halflings-icon align-justify"></i><span class="break"></span>房间列表</h2>
                     </div>
                     <div class="box-content">
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Username</th>
-                                <th>Date registered</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                                <th>caozuo</th>
+                                <th>#</th>
+                                <th>类型名称</th>
+                                <th>状态</th>
+
                             </tr>
                             </thead>
                             <tbody>
