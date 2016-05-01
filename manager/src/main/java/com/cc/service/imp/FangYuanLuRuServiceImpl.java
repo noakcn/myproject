@@ -54,7 +54,8 @@ public class FangYuanLuRuServiceImpl implements BasicService<Home> {
 
     @Override
     public Home findOne(Home object, HttpServletRequest request, HttpServletResponse response) {
-        return null;
+
+        return fangYuanDao.findOne(object);
     }
 
     @Override

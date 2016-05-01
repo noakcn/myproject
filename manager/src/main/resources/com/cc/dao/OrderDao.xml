@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dao.OrderDao">
+
+    <insert id="insert" parameterType="com.cc.domain.Order">
+        insert into ord_table (id,customer_id,home_id,yajin,price,total_price,off,ruzhu_date,day_number)
+        values (#{id},#{customer.id},#{home.id},#{yajin},#{price},#{total_price},#{off},#{ruzhu_date},#{day_number})
+    </insert>
+    <resultMap id="orderMap" type="com.cc.domain.Order">
+        <id column="id" property="id"/>
+        <result column="yajin" property="yajin"/>
+        <result column="price" property="price"/>
+        <result column="off" property="off"/>
+        <result column="ruzhu_date" property="ruzhu_date"/>
+        <result column="day_number" property="day_number"/>
+        <result column="tuifang_date" property="tuifang_date"/>
+        <result column="refund_price" property="refund_price"/>
+        <result column="total_price" property="total_price"/>
+        <association resultMap="homeMap" property="home"/>
+        <association resultMap="customerMap" property="customer"/>
+    </resultMap>
+    <resultMap id="homeMap" type="com.cc.domain.Home">
+        <id column="home_id" property="id"/>
+        <result column="bianhao" property="bianhao"/>
+        <result column="louceng" property="louceng"/>
+    </resultMap>
+    <resultMap id="customerMap" type="com.cc.domain.Customer">
+        <id column="customer_id" property="customer_id"/>
+        <result column="name" property="name"/>
+        <result column="identity" property="identity"/>
+        <result column="mobile" property="mobile"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="orderMap">
+
+    </select>
+
+    <select id="findOne" resultMap="orderMap">
+
+    </select>
+</mapper>

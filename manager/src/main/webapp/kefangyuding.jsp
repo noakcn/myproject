@@ -11,8 +11,8 @@
     <base href="<%=basePath%>">
     <!-- start: Meta -->
     <meta charset="utf-8">
-    <title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
-    <meta name="description" content="Bootstrap Metro Dashboard">
+    <title>客房管理系统</title>
+    <meta name="description" content="客房管理系统">
     <meta name="author" content="Dennis Ji">
     <meta name="keyword"
           content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -29,7 +29,7 @@
     <link id="base-style-responsive" href="css/style-responsive.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext'
           rel='stylesheet' type='text/css'>
-    <link  href="css/mycss.css" rel="stylesheet">
+    <link href="css/mycss.css" rel="stylesheet">
     <!-- end: CSS -->
 
 
@@ -89,17 +89,22 @@
                         <div class="box-content">
                             <c:forEach var="home" items="${list }">
                                 <c:if test="${home.status==10}">
-                                    <a id="${home.id}" class="quick-button span2 make_bottom_margin" onclick="">
+                                    <a id="${home.id}" class="quick-button span2 make_bottom_margin"
+                                       onclick="showdengjiruzhu(
+                                               {home_number:'${home.bianhao}',
+                                               home_id:'${home.id}',
+                                               home_price:'${home.price}'})">
                                         <i class="icon-home"></i>
-                                        <p>${home.bianhao}</p>
+                                        <p>${home.bianhao}(${home.typeStr})</p>
                                         <span class="notification green">${home.statusStr}</span>
                                     </a>
 
                                 </c:if>
                                 <c:if test="${home.status==20}">
-                                    <a id="${home.id}" class="quick-button green span2 make_bottom_margin" onclick="showyijingruzhu()">
+                                    <a id="${home.id}" class="quick-button green span2 make_bottom_margin"
+                                       onclick="showyijingruzhu()">
                                         <i class="icon-home"></i>
-                                        <p>${home.bianhao}</p>
+                                        <p>${home.bianhao}(${home.typeStr})</p>
                                         <span class="notification blue">${home.statusStr}</span>
                                     </a>
                                 </c:if>
@@ -107,7 +112,7 @@
                                     <a id="${home.id}" class="quick-button red span2"
                                        onclick="showdashaoweishengzhong()">
                                         <i class="icon-home"></i>
-                                        <p>${home.bianhao}</p>
+                                        <p>${home.bianhao}(${home.typeStr})</p>
                                         <span class="notification green">${home.statusStr}</span>
                                     </a>
                                 </c:if>
@@ -115,7 +120,7 @@
                                     <a id="${home.id}" class="quick-button black span2"
                                        onclick="showdashaoweishengzhong()">
                                         <i class="icon-home"></i>
-                                        <p>${home.bianhao}</p>
+                                        <p>${home.bianhao}(${home.typeStr})</p>
                                         <span class="notification red">${home.statusStr}</span>
                                     </a>
                                 </c:if>
@@ -140,7 +145,7 @@
         <h3>提示</h3>
     </div>
     <div class="modal-body">
-        <p>该客房已经入住，不可继续入住</p>
+        <p>确定退房？</p>
     </div>
     <div class="modal-footer">
         <a href="#" class="btn" data-dismiss="modal">确定</a>
@@ -158,6 +163,95 @@
     <div class="modal-footer">
         <a href="#" class="btn" data-dismiss="modal">确定</a>
     </div>
+</div>
+
+<div class="modal hide fade" id="dengjiruzhu">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>提示</h3>
+    </div>
+    <div class="modal-body">
+        <div class="box-content">
+            <sf:form class="form-horizontal" id="dengjiruzhuform" action="/operator/dengjiruzhu.do"
+                     method="get" modelAttribute="makeOrderRequest">
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label">房间编号</label>
+                        <div class="controls">
+                            <input class="input-xlarge uneditable-input" id="home_number" name="home_number" type="text"
+                                   disabled="">
+                            <input type="hidden" id="home_id" name="home_id" type="text">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">入住天数</label>
+                        <div class="controls">
+                            <input id="day_number" name="day_number" type="text">
+
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">姓名</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused" id="name" name="name" type="text">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">身份证号</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused" id="identity" name="identity" type="text">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">手机</label>
+                        <div class="controls">
+                            <input class="input-xlarge focused" id="mobile" name="mobile" type="text">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">押金</label>
+                        <div class="controls">
+                            <div class="input-prepend input-append">
+                                <span class="add-on">¥</span><input id="yajin" name="yajin" size="16" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">单价</label>
+                        <div class="controls">
+                            <div class="input-prepend input-append">
+                                <span class="add-on">¥</span><input id="price" name="price" size="16" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label class="control-label">折扣</label>
+                        <div class="controls">
+                            <select id="off" name="off">
+                                <option selected value="100">无折扣</option>
+                                <option value="95">9.5折</option>
+                                <option value="80">8折</option>
+                                <option value="50">5折</option>
+                                <option value="0">免单</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">开房</button>
+                    </div>
+                </fieldset>
+            </sf:form>
+
+        </div>
+    </div><!--/span-->
+
+</div><!--/row-->
+</div>
+<div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">确定</a>
+</div>
 </div>
 
 <div class="clearfix"></div>
@@ -239,6 +333,14 @@
     }
     function showdashaoweishengzhong() {
         $('#dashaoweishengzhong').modal('show');
+    }
+    function showdengjiruzhu(params) {
+        var set = $.extend({}, params);
+        $('#dengjiruzhuform')[0].reset();
+        $('#home_number').val(set.home_number);
+        $('#home_id').val(set.home_id);
+        $('#price').val(set.home_price);
+        $('#dengjiruzhu').modal('show');
     }
 
 </script>

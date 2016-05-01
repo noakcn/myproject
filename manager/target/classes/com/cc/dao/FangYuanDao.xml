@@ -13,4 +13,9 @@
         select * from home_table
         ORDER BY bianhao,louceng
     </select>
+
+    <select id="findOne" resultType="com.cc.domain.Home">
+        SELECT * FROM home_table
+        WHERE id=#{id}
+    </select>
 </mapper>

@@ -9,8 +9,8 @@
 
     <!-- start: Meta -->
     <meta charset="utf-8">
-    <title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
-    <meta name="description" content="Bootstrap Metro Dashboard">
+    <title>客房管理系统</title>
+    <meta name="description" content="客房管理系统">
     <meta name="author" content="Dennis Ji">
     <meta name="keyword"
           content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
