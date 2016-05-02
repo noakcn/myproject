@@ -12,7 +12,7 @@ import java.util.List;
 public interface BasicService<T> {
     int insert(T object, HttpServletRequest request,HttpServletResponse response);
     List<T> findAll(T object, HttpServletRequest request,HttpServletResponse response);
-    Home findOne(T object, HttpServletRequest request,HttpServletResponse response);
+    T findOne(T object, HttpServletRequest request,HttpServletResponse response);
     int update(T object, HttpServletRequest request,HttpServletResponse response);
     int delete(T object, HttpServletRequest request,HttpServletResponse response);
 }

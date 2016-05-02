@@ -60,7 +60,7 @@ public class FangYuanLuRuServiceImpl implements BasicService<Home> {
 
     @Override
     public int update(Home object, HttpServletRequest request, HttpServletResponse response) {
-        return 0;
+        return fangYuanDao.update(object);
     }
 
     @Override

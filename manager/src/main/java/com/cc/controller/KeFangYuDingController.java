@@ -5,8 +5,11 @@ import com.cc.domain.Home;
 import com.cc.domain.Order;
 import com.cc.request.MakeOrderRequest;
 import com.cc.response.HomeResponse;
+import com.cc.response.OrderDetailResponse;
 import com.cc.service.BasicService;
 import com.cc.util.RandDomId;
+import com.cc.util.myEnumClass.HomeStatus;
+import com.cc.util.myEnumClass.OrderStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -56,7 +59,7 @@ public class KeFangYuDingController {
         customerService.insert(customer, null, null);
         Home condition = new Home();
         condition.setId(makeOrderRequest.getHome_id());
-        Home home = homeService.findOne(condition, null, null);
+        Home home = (Home) homeService.findOne(condition, null, null);
         Date now = new Date();
         Order order = new Order(
                 RandDomId.getId(),
@@ -71,6 +74,37 @@ public class KeFangYuDingController {
         order.setTotal_price(order.getPrice() * order.getDay_number() * order.getOff() / 100);
 
         orderService.insert(order, null, null);
-        return "";
+
+        home.setStatus(HomeStatus.YiRuZhu.getCode());
+        homeService.update(home, null, null);
+
+
+        OrderDetailResponse responseObject = new OrderDetailResponse(order);
+        request.setAttribute("order", responseObject);
+        request.setAttribute("msg", "开房成功");
+        return "orderdetail";
+    }
+
+    @RequestMapping("/tuifang")
+    public String tuiFang(HttpServletRequest request) {
+        String id = request.getParameter("id");
+        if (id == null) return null;
+        Order condition = new Order();
+        Home homeCondition=new Home();
+        homeCondition.setId(id);
+        condition.setHome(homeCondition);
+        Order order = (Order) orderService.findOne(condition, null, null);
+        order.setTuifang_date(new Date());
+        order.setStatus(OrderStatus.YiWanCheng.getCode());
+        orderService.update(order, null, null);
+        OrderDetailResponse responseObject = new OrderDetailResponse(order);
+        homeCondition.setStatus(HomeStatus.KongXiang.getCode());
+        homeService.update(homeCondition,null,null);
+
+
+        request.setAttribute("msg", "退房成功");
+        request.setAttribute("order", responseObject);
+        return "orderdetail";
+
     }
 }

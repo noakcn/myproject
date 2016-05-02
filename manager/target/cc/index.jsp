@@ -73,7 +73,7 @@
                     <i class="icon-group"></i>
                     <p>客房预订</p>
                 </a>
-                <a class="quick-button metro red span4" href="dingdanguanli.jsp">
+                <a class="quick-button metro red span4" href="/operator/get/order/list.do">
                     <i class="icon-edit"></i>
                     <p>订单管理</p>
                 </a>

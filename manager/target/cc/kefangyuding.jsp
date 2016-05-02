@@ -102,7 +102,7 @@
                                 </c:if>
                                 <c:if test="${home.status==20}">
                                     <a id="${home.id}" class="quick-button green span2 make_bottom_margin"
-                                       onclick="showyijingruzhu()">
+                                       onclick="showyijingruzhu({home_id:'${home.id}'})">
                                         <i class="icon-home"></i>
                                         <p>${home.bianhao}(${home.typeStr})</p>
                                         <span class="notification blue">${home.statusStr}</span>
@@ -148,7 +148,7 @@
         <p>确定退房？</p>
     </div>
     <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal">确定</a>
+        <a id="tuifangmodal" href="#" class="btn" data-dismiss="modal">确定</a>
     </div>
 </div>
 
@@ -248,11 +248,7 @@
     </div><!--/span-->
 
 </div><!--/row-->
-</div>
-<div class="modal-footer">
-    <a href="#" class="btn" data-dismiss="modal">确定</a>
-</div>
-</div>
+
 
 <div class="clearfix"></div>
 
@@ -327,7 +323,9 @@
 <!-- end: JavaScript-->
 <!-- start:my js-->
 <script type="text/javascript">
-    function showyijingruzhu() {
+    function showyijingruzhu(params) {
+        var set = $.extend({}, params);
+        $('#tuifangmodal').attr("onclick", "javascript:window.location='/operator/tuifang.do?id=" + set.home_id+"'")
 
         $('#yijingruzhu').modal('show');
     }

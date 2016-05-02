@@ -36,7 +36,7 @@ public class CustomerServiceImpl implements BasicService<Customer> {
     }
 
     @Override
-    public Home findOne(Customer object, HttpServletRequest request, HttpServletResponse response) {
+    public Customer findOne(Customer object, HttpServletRequest request, HttpServletResponse response) {
         return null;
     }
 

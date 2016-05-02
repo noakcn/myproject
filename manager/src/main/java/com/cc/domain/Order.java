@@ -1,5 +1,7 @@
 package com.cc.domain;
 
+import com.cc.util.myEnumClass.OrderStatus;
+
 import java.util.Date;
 
 /**
@@ -17,8 +19,11 @@ public class Order {
     private Date tuifang_date;
     private Double refund_price;
     private Double total_price;
+    private Integer status;
 
     public Order() {
+        this.home=new Home();
+        this.customer=new Customer();
     }
 
     public Order(String id, Double yajin, Double price, Double off, Date ruzhu_date, Integer day_number) {
@@ -28,7 +33,18 @@ public class Order {
         this.off = off;
         this.ruzhu_date = ruzhu_date;
         this.day_number = day_number;
+        this.status = OrderStatus.WeiWanCheng.getCode();
+        this.home=new Home();
+        this.customer=new Customer();
 
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Double getTotal_price() {

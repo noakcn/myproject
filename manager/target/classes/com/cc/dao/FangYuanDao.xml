@@ -18,4 +18,17 @@
         SELECT * FROM home_table
         WHERE id=#{id}
     </select>
+
+    <update id="update" parameterType="com.cc.domain.Home">
+        UPDATE home_table
+        <set>
+            <if test="bianhao!=null">bianhao=${bianhao},</if>
+            <if test="louceng!=null">louceng=${louceng},</if>
+            <if test="status!=null">status=${status},</if>
+            <if test="price!=null">price=${price},</if>
+            <if test="type!=null">type=${type}</if>
+
+        </set>
+        WHERE id=#{id}
+    </update>
 </mapper>

@@ -19,7 +19,7 @@
                         <span class="hidden-tablet"> 客房预订</span>
                     </a>
                     </li>
-                    <li><a class="submenu" href="dingdanguanli.jsp"><i class="icon-list"></i>
+                    <li><a class="submenu" href="/operator/get/order/list.do"><i class="icon-list"></i>
                         <span class="hidden-tablet"> 订单管理</span>
                     </a>
                     </li>

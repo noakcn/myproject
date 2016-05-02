@@ -30,17 +30,20 @@ public class KeFangYuDingServiceImpl implements BasicService<Order> {
 
     @Override
     public List<Order> findAll(Order object, HttpServletRequest request, HttpServletResponse response) {
-        return null;
+
+        return orderDao.findAll(object);
+        
     }
 
     @Override
-    public Home findOne(Order object, HttpServletRequest request, HttpServletResponse response) {
-        return null;
+    public Order findOne(Order object, HttpServletRequest request, HttpServletResponse response) {
+        return orderDao.findOne(object);
     }
 
     @Override
     public int update(Order object, HttpServletRequest request, HttpServletResponse response) {
-        return 0;
+
+        return orderDao.update(object);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.cc.dao;
 
 
 import com.cc.domain.Order;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public interface OrderDao {
 
     Order findOne(Order order);
 
-    int update(Order order);
+    int update( Order order);
 
     int delete(Order order);
 }

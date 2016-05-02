@@ -8,6 +8,15 @@
         insert into ord_table (id,customer_id,home_id,yajin,price,total_price,off,ruzhu_date,day_number)
         values (#{id},#{customer.id},#{home.id},#{yajin},#{price},#{total_price},#{off},#{ruzhu_date},#{day_number})
     </insert>
+
+    <update id="update" parameterType="com.cc.domain.Order">
+        UPDATE ord_table
+        <set>
+            <if test="status!=null">status=${status}</if>
+        </set>
+        WHERE id=#{id}
+    </update>
+
     <resultMap id="orderMap" type="com.cc.domain.Order">
         <id column="id" property="id"/>
         <result column="yajin" property="yajin"/>
@@ -18,6 +27,7 @@
         <result column="tuifang_date" property="tuifang_date"/>
         <result column="refund_price" property="refund_price"/>
         <result column="total_price" property="total_price"/>
+        <result column="status" property="status"/>
         <association resultMap="homeMap" property="home"/>
         <association resultMap="customerMap" property="customer"/>
     </resultMap>
@@ -27,17 +37,58 @@
         <result column="louceng" property="louceng"/>
     </resultMap>
     <resultMap id="customerMap" type="com.cc.domain.Customer">
-        <id column="customer_id" property="customer_id"/>
+        <id column="customer_id" property="id"/>
         <result column="name" property="name"/>
         <result column="identity" property="identity"/>
         <result column="mobile" property="mobile"/>
     </resultMap>
 
     <select id="findAll" resultMap="orderMap">
-
+      SELECT ord.id,
+      ord.yajin,
+      ord.price,
+      ord.off,
+      ord.ruzhu_date,
+      ord.day_number,
+      ord.tuifang_date,
+      ord.refund_price,
+      ord.total_price,
+      ord.status,
+      home.id AS home_id,
+      home.bianhao,
+      home.louceng,
+      cus.id AS customer_id,
+      cus.name ,
+      cus.identity,
+      cus.mobile
+      FROM ord_table ord LEFT JOIN customer_table cus ON cus.id=ord.customer_id
+      LEFT JOIN home_table home ON home.id=ord.home_id
     </select>
 
-    <select id="findOne" resultMap="orderMap">
-
+    <select id="findOne" resultMap="orderMap" parameterType="com.cc.domain.Order">
+        SELECT ord.id,
+        ord.yajin,
+        ord.price,
+        ord.off,
+        ord.ruzhu_date,
+        ord.day_number,
+        ord.tuifang_date,
+        ord.refund_price,
+        ord.total_price,
+        ord.status,
+        home.id AS home_id,
+        home.bianhao,
+        home.louceng,
+        cus.id AS customer_id,
+        cus.name ,
+        cus.identity,
+        cus.mobile
+        FROM ord_table ord LEFT JOIN customer_table cus ON cus.id=ord.customer_id
+        LEFT JOIN home_table home ON home.id=ord.home_id
+        <where>
+            <if test="id!=null">ord.id=#{id}</if>
+            <if test="home.id!=null">AND ord.home_id=#{home.id} AND ord.status=0</if>
+        </where>
+        limit 0,1
     </select>
 </mapper>
