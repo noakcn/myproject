@@ -18,4 +18,10 @@
         SELECT * FROM customer_table
         WHERE id=#{id}
     </select>
+
+    <update id="update" parameterType="com.cc.domain.Customer">
+        update customer_table
+        SET name=#{name},identity=#{identity},mobile=#{mobile}
+        WHERE id=#{id}
+    </update>
 </mapper>

@@ -42,7 +42,6 @@ public class KeFangYuDingServiceImpl implements BasicService<Order> {
 
     @Override
     public int update(Order object, HttpServletRequest request, HttpServletResponse response) {
-
         return orderDao.update(object);
     }
 

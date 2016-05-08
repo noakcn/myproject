@@ -160,8 +160,12 @@
                                     </div>
 
                                     <div class="form-actions">
-                                        <a href="/operator/show/reserve.do" class="btn btn-primary">确定</a>
-
+                                        <c:if test="${type==1}">
+                                            <a href="/operator/get/order/list.do" class="btn btn-primary">返回</a>
+                                        </c:if>
+                                        <c:if test="${type==2}">
+                                            <a href="/operator/show/reserve.do" class="btn btn-primary">确定</a>
+                                        </c:if>
                                     </div>
 
 
@@ -189,9 +193,9 @@
 <footer>
 
     <p>
-        <span style="text-align:left;float:left">&copy; 2016 noak <a
-                href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard">Bootstrap
-            Metro Dashboard</a></span>
+    <span style="text-align:left;float:left">&copy; 2016 noak <a
+            href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard">Bootstrap
+        Metro Dashboard</a></span>
 
     </p>
 

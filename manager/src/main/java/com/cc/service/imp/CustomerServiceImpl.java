@@ -42,7 +42,7 @@ public class CustomerServiceImpl implements BasicService<Customer> {
 
     @Override
     public int update(Customer object, HttpServletRequest request, HttpServletResponse response) {
-        return 0;
+        return customerDao.update(object);
     }
 
     @Override

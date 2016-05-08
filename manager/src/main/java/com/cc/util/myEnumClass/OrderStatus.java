@@ -5,7 +5,9 @@ package com.cc.util.myEnumClass;
  */
 public enum OrderStatus {
     WeiWanCheng(0,"未完成"),
-    YiWanCheng(1,"已完成");
+    YiWanCheng(1,"已完成"),
+    Revoke(2,"已撤销")
+    ;
     private int code;
     private String text;
     private OrderStatus(int code , String text){

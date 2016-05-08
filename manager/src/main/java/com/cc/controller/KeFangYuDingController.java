@@ -81,11 +81,12 @@ public class KeFangYuDingController {
 
         OrderDetailResponse responseObject = new OrderDetailResponse(order);
         request.setAttribute("order", responseObject);
+        request.setAttribute("type",2);
         request.setAttribute("msg", "开房成功");
         return "orderdetail";
     }
 
-    @RequestMapping("/tuifang")
+    @RequestMapping("/tuifang.do")
     public String tuiFang(HttpServletRequest request) {
         String id = request.getParameter("id");
         if (id == null) return null;
@@ -103,6 +104,7 @@ public class KeFangYuDingController {
 
 
         request.setAttribute("msg", "退房成功");
+        request.setAttribute("type",2);
         request.setAttribute("order", responseObject);
         return "orderdetail";
 

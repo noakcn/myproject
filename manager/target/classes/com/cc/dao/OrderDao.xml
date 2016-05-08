@@ -12,7 +12,12 @@
     <update id="update" parameterType="com.cc.domain.Order">
         UPDATE ord_table
         <set>
-            <if test="status!=null">status=${status}</if>
+            <if test="status!=null">status=#{status},</if>
+            <if test="customer.id!=null">customer_id=#{customer.id},</if>
+            <if test="yajin!=null">yajin=#{yajin},</if>
+            <if test="off!=null">off=#{off},</if>
+            <if test="day_number!=null">day_number=#{day_number},</if>
+            <if test="total_price!=null">total_price=#{total_price}</if>
         </set>
         WHERE id=#{id}
     </update>
@@ -63,6 +68,7 @@
       cus.mobile
       FROM ord_table ord LEFT JOIN customer_table cus ON cus.id=ord.customer_id
       LEFT JOIN home_table home ON home.id=ord.home_id
+      ORDER BY ruzhu_date desc
     </select>
 
     <select id="findOne" resultMap="orderMap" parameterType="com.cc.domain.Order">

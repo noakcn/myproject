@@ -34,7 +34,7 @@ public class OrderDetailResponse {
         this.home = o.getHome();
         this.yajin = o.getYajin();
         this.price = o.getPrice();
-        this.off = String.valueOf(o.getOff()) + "%";
+        this.off = String.valueOf(o.getOff()) ;
         this.ruzhu_date = DateUtils.formatDate(DateType.TYPE_2, o.getRuzhu_date());
         this.day_number = o.getDay_number();
         this.tuifang_date = DateUtils.formatDate(DateType.TYPE_2, o.getTuifang_date());

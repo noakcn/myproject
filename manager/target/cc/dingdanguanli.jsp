@@ -143,11 +143,31 @@
                                                 <span class="label label-success">${o.statusStr}</span>
                                             </td>
                                         </c:if>
+                                        <c:if test="${o.status ==2}">
+                                            <td class="center">
+                                                <span class="label label-warning">${o.statusStr}</span>
+                                            </td>
+                                        </c:if>
 
                                         <td class="center">
-                                            <a class="btn btn-success" href="/operator/show/order/detail.do?id=${o.id}">
-                                                <i class="halflings-icon white zoom-in"></i>
-                                            </a>
+                                            <c:if test="${o.status ==1||o.status==2}">
+                                                <a class="btn btn-success"
+                                                   href="/operator/show/order/detail.do?id=${o.id}">
+                                                    <i class="halflings-icon white zoom-in"></i>
+                                                </a>
+                                            </c:if>
+                                            <c:if test="${o.status ==0}">
+                                                <a class="btn btn-success"
+                                                   href="/operator/order/to/edit.do?id=${o.id}">
+                                                    <i class="halflings-icon white edit"></i>
+                                                </a>
+                                                <a class="btn btn-success"
+                                                   href="/operator/order/delete.do?id=${o.id}">
+                                                    <i class="halflings-icon white trash"></i>
+                                                </a>
+
+                                            </c:if>
+
                                         </td>
                                     </tr>
                                 </c:forEach>
