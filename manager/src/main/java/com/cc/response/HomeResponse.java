@@ -37,11 +37,15 @@ public class HomeResponse {
         this.id=home.getId();
         this.bianhao=home.getBianhao();
         this.louceng=home.getLouceng();
-        this.statusStr=HomeStatus.getValueByCode(home.getStatus());
+        if(home.getStatus()!=null) {
+            this.statusStr = HomeStatus.getValueByCode(home.getStatus() );
+        }
         this.status=home.getStatus();
         this.price=home.getPrice();
         this.type=home.getType();
-        this.typeStr=HomeType.getValueByCode(home.getType());
+        if(home.getType()!=null) {
+            this.typeStr = HomeType.getValueByCode(home.getType());
+        }
     }
 
     public Integer getStatus() {

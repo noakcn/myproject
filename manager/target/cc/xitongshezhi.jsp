@@ -70,7 +70,7 @@
                     <a href="index.jsp">房务管理</a>
                     <i class="icon-angle-right"></i>
                 </li>
-                <li><a href="fang.jsp">系统设置</a>
+                <li><a href="fang.jsp">客房服务</a>
 
                 </li>
             </ul>
@@ -115,60 +115,7 @@
                 </div><!--/span-->
 
             </div><!--/row-->
-            <div class="row-fluid sortable">
-                <div class="box span12">
-                    <div class="box-header">
-                        <h2><i class="halflings-icon align-justify"></i><span class="break"></span>房间列表</h2>
-                    </div>
-                    <div class="box-content">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>类型名称</th>
-                                <th>状态</th>
 
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>Dennis Ji</td>
-                                <td class="center">2012/01/01</td>
-                                <td class="center">Member</td>
-                                <td class="center">
-                                    <span class="label label-success">Active</span>
-                                </td>
-                                <td class="center">
-
-                                    <a class="btn btn-info" href="#">
-                                        <i class="halflings-icon white edit"></i>
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="halflings-icon white trash"></i>
-                                    </a>
-
-                                </td>
-                            </tr>
-
-                            </tbody>
-                        </table>
-                        <div class="pagination pagination-centered">
-                            <ul>
-                                <li><a href="#">Prev</a></li>
-                                <li class="active">
-                                    <a href="#">1</a>
-                                </li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">Next</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div><!--/span-->
-
-
-        </div><!--/.fluid-container-->
 
         <!-- end: Content -->
     </div><!--/#content.span10-->

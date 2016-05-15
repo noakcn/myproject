@@ -118,7 +118,7 @@
                                 </c:if>
                                 <c:if test="${home.status==40}">
                                     <a id="${home.id}" class="quick-button black span2"
-                                       onclick="showdashaoweishengzhong()">
+                                       onclick="showbukeyong()">
                                         <i class="icon-home"></i>
                                         <p>${home.bianhao}(${home.typeStr})</p>
                                         <span class="notification red">${home.statusStr}</span>
@@ -159,6 +159,18 @@
     </div>
     <div class="modal-body">
         <p>该客房正在打扫卫生，请稍后再试...</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">确定</a>
+    </div>
+</div>
+<div class="modal hide fade" id="bukeyong">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>提示</h3>
+    </div>
+    <div class="modal-body">
+        <p>该客房暂不可用</p>
     </div>
     <div class="modal-footer">
         <a href="#" class="btn" data-dismiss="modal">确定</a>
@@ -331,6 +343,9 @@
     }
     function showdashaoweishengzhong() {
         $('#dashaoweishengzhong').modal('show');
+    }
+    function showbukeyong() {
+        $('#bukeyong').modal('show');
     }
     function showdengjiruzhu(params) {
         var set = $.extend({}, params);

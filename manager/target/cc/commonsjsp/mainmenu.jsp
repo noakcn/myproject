@@ -34,8 +34,8 @@
                 </ul>
             </li>
 
-            <li><a href="xitongshezhi.jsp"><i class="icon-tasks"></i><span class="hidden-tablet"> 系统设置</span></a></li>
-            <li><a href="#"><i class="icon-eye-open"></i><span class="hidden-tablet"> 统计</span></a></li>
+            <li><a href="/operator/to/fuwu.do"><i class="icon-tasks"></i><span class="hidden-tablet"> 客房服务</span></a></li>
+
 
         </ul>
     </div>

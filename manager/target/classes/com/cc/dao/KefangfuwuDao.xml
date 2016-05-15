@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cc.dao.KefangfuwuDao">
+
+    <insert id="insert" parameterType="com.cc.domain.Kefangfuwu">
+        insert into kefangfuwu (id, homeId, content,createDate)
+        VALUE (#{id},#{homeId},#{content},#{createDate})
+    </insert>
+    <resultMap id="kefangfuwuMap" type="com.cc.domain.Kefangfuwu">
+        <id column="id" property="id"/>
+        <result column="content" property="content"/>
+        <result column="createDate" property="createDate"/>
+        <result column="status" property="status"/>
+        <association property="home" resultMap="homeMap"/>
+    </resultMap>
+    <resultMap id="homeMap" type="com.cc.domain.Home">
+        <id column="homeId" property="id"/>
+        <result column="bianhao" property="bianhao"/>
+    </resultMap>
+    <select id="findAll" resultMap="kefangfuwuMap">
+        select kff.*,
+        ht.*
+        from kefangfuwu kff LEFT JOIN home_table ht ON ht.id=kff.homeId
+        WHERE kff.enable=1
+        ORDER BY kff.createDate DESC
+    </select>
+
+    <update id="update" parameterType="com.cc.domain.Kefangfuwu">
+        UPDATE kefangfuwu SET status=#{status}
+        WHERE id=#{id}
+    </update>
+
+
+</mapper>
