@@ -90,7 +90,7 @@
                         </div>
                         <div class="box-content">
                             ${msg}
-                            <sf:form id="tz" class="form-horizontal" action="/operator/order/do/edit.do" method="get"
+                            <sf:form id="tz" class="form-horizontal" action="operator/order/do/edit.do" method="get"
                                      modelAttribute="editOrderRequest">
                                 <fieldset>
                                     <input type="hidden" name="id" value="${order.id}">

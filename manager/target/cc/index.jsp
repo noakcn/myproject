@@ -69,11 +69,11 @@
             </ul>
 
             <div class="row-fluid">
-                <a class="quick-button metro yellow span4" href="/operator/show/reserve.do">
+                <a class="quick-button metro yellow span4" href="operator/show/reserve.do">
                     <i class="icon-group"></i>
                     <p>客房预订</p>
                 </a>
-                <a class="quick-button metro red span4" href="/operator/get/order/list.do">
+                <a class="quick-button metro red span4" href="operator/get/order/list.do">
                     <i class="icon-edit"></i>
                     <p>订单管理</p>
                 </a>
@@ -85,7 +85,7 @@
                     <i class="icon-plus"></i>
                     <p>房源录入</p>
                 </a>
-                <a class="quick-button metro green span4" href="/operator/search.do">
+                <a class="quick-button metro green span4" href="operator/search.do">
                     <i class="icon-search"></i>
                     <p>房源查询</p>
                 </a>

@@ -161,10 +161,10 @@
 
                                     <div class="form-actions">
                                         <c:if test="${type==1}">
-                                            <a href="/operator/get/order/list.do" class="btn btn-primary">返回</a>
+                                            <a href="operator/get/order/list.do" class="btn btn-primary">返回</a>
                                         </c:if>
                                         <c:if test="${type==2}">
-                                            <a href="/operator/show/reserve.do" class="btn btn-primary">确定</a>
+                                            <a href="operator/show/reserve.do" class="btn btn-primary">确定</a>
                                         </c:if>
                                     </div>
 

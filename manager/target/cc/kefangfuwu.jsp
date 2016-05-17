@@ -153,7 +153,7 @@
                                         </c:if>
                                     </td>
                                     <td class="center">
-                                        <a class="btn btn-success" href="/operator/complete/fuwu.do?id=${t.id}">
+                                        <a class="btn btn-success" href="operator/complete/fuwu.do?id=${t.id}">
                                             <i class="halflings-icon white check"></i>
                                         </a>
 

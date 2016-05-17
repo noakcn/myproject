@@ -15,11 +15,11 @@
                         class="hidden-tablet"> 房务管理</span><span
                         class="label label-important"> 4 </span></a>
                 <ul>
-                    <li><a class="submenu" href="/operator/show/reserve.do"><i class="icon-pencil"></i>
+                    <li><a class="submenu" href="operator/show/reserve.do"><i class="icon-pencil"></i>
                         <span class="hidden-tablet"> 客房预订</span>
                     </a>
                     </li>
-                    <li><a class="submenu" href="/operator/get/order/list.do"><i class="icon-list"></i>
+                    <li><a class="submenu" href="operator/get/order/list.do"><i class="icon-list"></i>
                         <span class="hidden-tablet"> 订单管理</span>
                     </a>
                     </li>
@@ -27,14 +27,14 @@
                         <span class="hidden-tablet"> 房源录入</span>
                     </a>
                     </li>
-                    <li><a class="submenu" href="/operator/search.do"><i class="icon-search"></i>
+                    <li><a class="submenu" href="operator/search.do"><i class="icon-search"></i>
                         <span class="hidden-tablet"> 房源查询</span>
                     </a>
                     </li>
                 </ul>
             </li>
 
-            <li><a href="/operator/to/fuwu.do"><i class="icon-tasks"></i><span class="hidden-tablet"> 客房服务</span></a></li>
+            <li><a href="operator/to/fuwu.do"><i class="icon-tasks"></i><span class="hidden-tablet"> 客房服务</span></a></li>
 
 
         </ul>

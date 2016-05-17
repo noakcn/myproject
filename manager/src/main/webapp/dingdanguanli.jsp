@@ -152,17 +152,17 @@
                                         <td class="center">
                                             <c:if test="${o.status ==1||o.status==2}">
                                                 <a class="btn btn-success"
-                                                   href="/operator/show/order/detail.do?id=${o.id}">
+                                                   href="operator/show/order/detail.do?id=${o.id}">
                                                     <i class="halflings-icon white zoom-in"></i>
                                                 </a>
                                             </c:if>
                                             <c:if test="${o.status ==0}">
                                                 <a class="btn btn-success"
-                                                   href="/operator/order/to/edit.do?id=${o.id}">
+                                                   href="operator/order/to/edit.do?id=${o.id}">
                                                     <i class="halflings-icon white edit"></i>
                                                 </a>
                                                 <a class="btn btn-success"
-                                                   href="/operator/order/delete.do?id=${o.id}">
+                                                   href="operator/order/delete.do?id=${o.id}">
                                                     <i class="halflings-icon white trash"></i>
                                                 </a>
 

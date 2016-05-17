@@ -184,7 +184,7 @@
     </div>
     <div class="modal-body">
         <div class="box-content">
-            <sf:form class="form-horizontal" id="dengjiruzhuform" action="/operator/dengjiruzhu.do"
+            <sf:form class="form-horizontal" id="dengjiruzhuform" action="operator/dengjiruzhu.do"
                      method="get" modelAttribute="makeOrderRequest">
                 <fieldset>
                     <div class="control-group">
@@ -337,7 +337,7 @@
 <script type="text/javascript">
     function showyijingruzhu(params) {
         var set = $.extend({}, params);
-        $('#tuifangmodal').attr("onclick", "javascript:window.location='/operator/tuifang.do?id=" + set.home_id+"'")
+        $('#tuifangmodal').attr("onclick", "javascript:window.location='operator/tuifang.do?id=" + set.home_id+"'")
 
         $('#yijingruzhu').modal('show');
     }

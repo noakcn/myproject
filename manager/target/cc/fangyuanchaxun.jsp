@@ -109,13 +109,13 @@
                                             <span class="label label-success">${home.statusStr}</span>
                                         </td>
                                         <td class="center">
-                                            <a class="btn btn-success" href="/operator/edit/home/status.do?id=${home.id}&status=10">
+                                            <a class="btn btn-success" href="operator/edit/home/status.do?id=${home.id}&status=10">
                                                 空闲
                                             </a>
-                                            <a class="btn btn-info black" href="/operator/edit/home/status.do?id=${home.id}&status=40">
+                                            <a class="btn btn-info black" href="operator/edit/home/status.do?id=${home.id}&status=40">
                                                 不可用
                                             </a>
-                                            <a class="btn btn-danger" href="/operator/edit/home/status.do?id=${home.id}&status=30">
+                                            <a class="btn btn-danger" href="operator/edit/home/status.do?id=${home.id}&status=30">
                                                 打扫
                                             </a>
 

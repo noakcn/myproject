@@ -85,7 +85,7 @@
 
                     </div>
                     <div class="box-content">
-                        <form class="form-horizontal" action="/operator/add/fangyuan.do">
+                        <form class="form-horizontal" action="operator/add/fangyuan.do">
                             <fieldset>
                                 <div class="control-group">
                                     <label class="control-label" for="bianhao">编号</label>
